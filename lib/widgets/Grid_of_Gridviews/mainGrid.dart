@@ -15,25 +15,15 @@ class _MainGridState extends State<MainGrid> {
   final GlobalKey _gridKey = GlobalKey();
   bool editMode = false;
 
-  final List<Map<String, dynamic>> gridItems = [
+  final Map<String , List<Map<String, dynamic>>> gridItems = { 
+    "Kitchen" :[
     {
       "name": 'Lamp 1',
       "color": Colors.red,
       "icon": Icons.lightbulb,
       "value": true
     },
-    {
-      "name": 'Lamp 2',
-      "color": Colors.green,
-      "icon": Icons.lightbulb,
-      "value": true
-    },
-    {
-      "name": 'Lamp 3',
-      "color": Colors.blue,
-      "icon": Icons.lightbulb,
-      "value": true
-    },
+    
     {
       "name": 'Spotlight 1',
       "color": Colors.orange,
@@ -52,13 +42,31 @@ class _MainGridState extends State<MainGrid> {
       "icon": Icons.lock_outlined,
       "value": true
     },
-    {
+    ],
+
+    "Living Room" : [
+      {
       "name": 'Heater',
       "color": Colors.pink,
       "icon": Icons.air_rounded,
       "value": true
+    },{
+      "name": 'Lamp 2',
+      "color": Colors.green,
+      "icon": Icons.lightbulb,
+      "value": true
     },
-  ];
+    {
+      "name": 'Lamp 3',
+      "color": Colors.blue,
+      "icon": Icons.lightbulb,
+      "value": true
+    },
+    ]
+  };
+
+  final List<String> dataKeysIndexs = ["Kitchen" , "Living Room"];// used to keep the index of keys and to be retrived from the db
+  
 
   @override
   Widget build(BuildContext context) {
@@ -78,19 +86,20 @@ class _MainGridState extends State<MainGrid> {
           ),
           const SizedBox(height: 20),
           Container(
-            width: gridWidth,
+            width: getGridColumnsCount(gridWidth, gridItems.length) * 570,
             child: GridView.builder(
               key: _gridKey,
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount:  getGridColumnsCount(gridWidth, gridItems.length),
+                mainAxisSpacing: 10
                
               ),
               itemCount: gridItems.length,
               itemBuilder: (context, index) {
-                final item = gridItems[index];
+                final item = gridItems[dataKeysIndexs[index]]!;
       
-                 Widget gridItem =  EditableGrid(title: index.toString());
+                 Widget gridItem =  EditableGrid(title: dataKeysIndexs[index] , data: item);
                     
       
                 if (editMode) {
@@ -100,7 +109,7 @@ class _MainGridState extends State<MainGrid> {
                       elevation: 0,
                       color: Colors.transparent,
                       child: Container(
-                        width: gridWidth / 2,
+                        width: gridWidth ,
                         //height: gridWidth / (2 * 2.5),
                         color: Colors.transparent,
                         child: gridItem,
@@ -110,8 +119,8 @@ class _MainGridState extends State<MainGrid> {
                     child: DragTarget<int>(
                       onAcceptWithDetails: (fromIndex) {
                         setState(() {
-                          final temp = gridItems.removeAt(fromIndex.data);
-                          gridItems.insert(index, temp);
+                          final temp = dataKeysIndexs.removeAt(fromIndex.data);
+                          dataKeysIndexs.insert(index, temp);
                         });
                       },
                       builder: (context, candidateData, rejectedData) {
@@ -129,6 +138,21 @@ class _MainGridState extends State<MainGrid> {
       );
     
   }
+
+
+
+  int getGridColumnsCount( double gridWidth , int len){
+
+      int count = (gridWidth / 550).toInt(); // 500 + 50   50 for padding
+      if (count > 2 ){count = (gridWidth / 570).toInt();} //when 3 columns , make padding 70
+      if(count == 0){return 1;}
+
+      if(count > len){ return len;}
+      return count;
+                   
+    }
+
+
   }
 
 

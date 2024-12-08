@@ -5,7 +5,9 @@ import '/widgets/gridview/grid_item_slider.dart';
 class EditableGrid extends StatefulWidget {
 
    String title = '';
-   EditableGrid({super.key , required this.title});
+   final List<Map<String, dynamic>> data; 
+
+   EditableGrid({super.key , required this.title , required this.data});
   @override
   _EditableGridState createState() => _EditableGridState();
 }
@@ -14,50 +16,7 @@ class _EditableGridState extends State<EditableGrid> {
   final Key _gridKey =  UniqueKey();
   bool editMode = false;
 
-  final List<Map<String, dynamic>> gridItems = [
-    {
-      "name": 'Lamp 1',
-      "color": Colors.red,
-      "icon": Icons.lightbulb,
-      "value": true
-    },
-    {
-      "name": 'Lamp 2',
-      "color": Colors.green,
-      "icon": Icons.lightbulb,
-      "value": true
-    },
-    {
-      "name": 'Lamp 3',
-      "color": Colors.blue,
-      "icon": Icons.lightbulb,
-      "value": true
-    },
-    {
-      "name": 'Spotlight 1',
-      "color": Colors.orange,
-      "icon": Icons.light,
-      "value": 0.86
-    },
-    {
-      "name": 'AC 2',
-      "color": Colors.purple,
-      "icon": Icons.ac_unit,
-      "value": true
-    },
-    {
-      "name": 'Door Lock',
-      "color": Colors.teal,
-      "icon": Icons.lock_outlined,
-      "value": true
-    },
-    {
-      "name": 'Heater',
-      "color": Colors.pink,
-      "icon": Icons.air_rounded,
-      "value": true
-    },
-  ];
+  
 
   @override
   Widget build(BuildContext context) {
@@ -86,9 +45,9 @@ class _EditableGridState extends State<EditableGrid> {
               crossAxisCount: 2,
               childAspectRatio: 2.5,
             ),
-            itemCount: gridItems.length,
+            itemCount: widget.data.length,
             itemBuilder: (context, index) {
-              final item = gridItems[index];
+              final item = widget.data[index];
 
               Widget gridItem = item['value'] is bool
                   ? GridItemSwitch(item: item)
@@ -111,8 +70,8 @@ class _EditableGridState extends State<EditableGrid> {
                   child: DragTarget<int>(
                     onAcceptWithDetails: (fromIndex) {
                       setState(() {
-                        final temp = gridItems.removeAt(fromIndex.data);
-                        gridItems.insert(index, temp);
+                        final temp = widget.data.removeAt(fromIndex.data);
+                        widget.data.insert(index, temp);
                       });
                     },
                     builder: (context, candidateData, rejectedData) {
