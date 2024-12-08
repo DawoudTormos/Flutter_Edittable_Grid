@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '/widgets/gridview/grid_item_switch.dart';
-import '/widgets/gridview/grid_item_slider.dart';
+import 'grid_item_switch.dart';
+import 'grid_item_slider.dart';
 
 class EditableGrid extends StatefulWidget {
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/gridview/editable_grid.dart';
+import 'widgets/Gridview_/editable_grid.dart';
 import "widgets/Grid_of_Gridviews/mainGrid.dart";
 
 void main() {
@@ -9,21 +9,27 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+        final double screenWidth = MediaQuery.of(context).size.width;
+
+    return MaterialApp(
       home: Scaffold(
         body: Center(
           child: SingleChildScrollView(
-            physics: RangeMaintainingScrollPhysics() ,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "Editable Grid Example",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 20),
-                MainGrid(),
-              ],
+            physics: const RangeMaintainingScrollPhysics() ,
+            child: Container(
+              width: screenWidth,
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                
+                children: [
+                  Text(
+                    "Editable Grid Example",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 20),
+                  MainGrid(),
+                ],
+              ),
             ),
           ),
         ),

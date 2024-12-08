@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import "package:Edittable_Grid_Flutter/widgets/gridview/editable_grid.dart";
+import "package:Edittable_Grid_Flutter/widgets/Gridview_/editable_grid.dart";
 
 class MainGrid extends StatefulWidget {
   const MainGrid({super.key});
@@ -71,7 +71,7 @@ class _MainGridState extends State<MainGrid> {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-    final double gridWidth = screenWidth ;
+    final double innerGridWidth = 570 ;
 
     return Column(
         mainAxisSize: MainAxisSize.max,
@@ -86,12 +86,12 @@ class _MainGridState extends State<MainGrid> {
           ),
           const SizedBox(height: 20),
           Container(
-            width: getGridColumnsCount(gridWidth, gridItems.length) * 570,
+            width: getGridColumnsCount(screenWidth, gridItems.length) * innerGridWidth,
             child: GridView.builder(
               key: _gridKey,
               shrinkWrap: true,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount:  getGridColumnsCount(gridWidth, gridItems.length),
+                crossAxisCount:  getGridColumnsCount(screenWidth, gridItems.length),
                 mainAxisSpacing: 10
                
               ),
@@ -109,7 +109,7 @@ class _MainGridState extends State<MainGrid> {
                       elevation: 0,
                       color: Colors.transparent,
                       child: Container(
-                        width: gridWidth ,
+                        width: innerGridWidth ,
                         //height: gridWidth / (2 * 2.5),
                         color: Colors.transparent,
                         child: gridItem,
@@ -141,10 +141,10 @@ class _MainGridState extends State<MainGrid> {
 
 
 
-  int getGridColumnsCount( double gridWidth , int len){
+  int getGridColumnsCount( double screenWidth , int len){
 
-      int count = (gridWidth / 550).toInt(); // 500 + 50   50 for padding
-      if (count > 2 ){count = (gridWidth / 570).toInt();} //when 3 columns , make padding 70
+      int count = (screenWidth / 550).toInt(); // 500 + 50   50 for padding
+      if (count > 2 ){count = (screenWidth / 570).toInt();} //when 3 columns , make padding 70
       if(count == 0){return 1;}
 
       if(count > len){ return len;}
