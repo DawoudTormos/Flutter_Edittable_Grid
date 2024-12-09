@@ -11,6 +11,7 @@ class GridItemSlider extends StatefulWidget {
 }
 
 class _GridItemSlider extends State<GridItemSlider> {
+  
  final Map<String, dynamic> item;
 
    _GridItemSlider({required this.item});
@@ -20,6 +21,7 @@ class _GridItemSlider extends State<GridItemSlider> {
     final double screenWidth = MediaQuery.of(context).size.width;
     double factor = screenWidth < 550 ? 0.75 : 0.83;
     if (screenWidth < 460) factor = 0.6;
+ 
 
     return Card(
       color: Colors.white,
@@ -33,7 +35,7 @@ class _GridItemSlider extends State<GridItemSlider> {
       child: Padding(
         padding: screenWidth > 550
             ? EdgeInsets.symmetric(horizontal: 25 * factor ,vertical: 20 * factor - 4)
-            : EdgeInsets.all(20 * factor),
+            : EdgeInsets.symmetric(horizontal: 25 * factor, vertical: 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +65,7 @@ class _GridItemSlider extends State<GridItemSlider> {
                   "Value: ${(item['value'] * 100).toInt()}%",
                   style: TextStyle(
                     color: Colors.grey[700]!,
-                    fontSize: 13 * factor,
+                    fontSize: 15 * factor,
                   ),
                 ),
               ],
