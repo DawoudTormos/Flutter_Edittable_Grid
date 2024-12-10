@@ -19,8 +19,7 @@ class _GridItemSlider extends State<GridItemSlider> {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-    double factor = screenWidth < 550 ? 0.75 : 0.83;
-    if (screenWidth < 460) factor = 0.6;
+    double factor = screenWidth < 550 ? 0.74 : 0.83;
  
 
     return Card(
@@ -65,7 +64,7 @@ class _GridItemSlider extends State<GridItemSlider> {
                   "Value: ${(item['value'] * 100).toInt()}%",
                   style: TextStyle(
                     color: Colors.grey[700]!,
-                    fontSize: 15 * factor,
+                    fontSize: screenWidth < 430  ? 15 * factor : 14 * factor,
                   ),
                 ),
               ],

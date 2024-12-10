@@ -148,7 +148,8 @@ if(screenWidth > 430){
     child: ListView.builder(
                 key: _gridKey,
                 shrinkWrap: true,
-               
+                              physics: NeverScrollableScrollPhysics(),
+
                 itemCount: widget.gridItems!.length,
                 itemBuilder: (context, index) {
                   final item = widget.gridItems![widget.gridItemsIndexes![index]]!;

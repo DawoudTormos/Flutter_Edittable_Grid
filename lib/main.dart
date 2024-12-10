@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: 
           SingleChildScrollView(
-            physics: const RangeMaintainingScrollPhysics() ,
+            //physics: BouncingScrollPhysics(),
             child: Container(
               width: screenWidth,
               child: 

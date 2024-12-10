@@ -21,14 +21,14 @@ class _EditableGridState extends State<EditableGrid> {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-    final double gridWidth = screenWidth < 500 ? screenWidth : 500;
+    final double gridWidth = screenWidth < 500 ? screenWidth  : 500 ; 
 
  
     return Container(
       width:gridWidth ,
       padding: EdgeInsets.only(bottom:70),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.min, 
         children: [
       
           Container(
@@ -63,6 +63,7 @@ class _EditableGridState extends State<EditableGrid> {
             child: GridView.builder(
               //key: _gridKey,
               shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: screenWidth < 430 ? 1 : 2,
                 childAspectRatio: screenWidth < 430 ? 4 : 2.5,
@@ -82,8 +83,8 @@ class _EditableGridState extends State<EditableGrid> {
                       elevation: 0,
                       color: Colors.transparent,
                       child: Container(
-                        width: gridWidth / 2,
-                        height: gridWidth / (2 * 2.5),
+                        width: screenWidth < 430 ? gridWidth-40 : gridWidth / 2,
+                        height: screenWidth < 430 ? (gridWidth-40) / ( 1 * 4) : gridWidth / (2 * 2.5),
                         color: Colors.transparent,
                         child: gridItem,
                       ),
