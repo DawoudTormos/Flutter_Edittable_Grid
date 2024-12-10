@@ -1,18 +1,21 @@
 
 # Flutter Editable Grid 🚀
 
-Welcome to **Flutter Editable Grid**, a dynamic Flutter application serving as the frontend for a **Home Automation Project (Home Control System - HCS )**. This app demonstrates a sleek, user-friendly **editable grid** that allows seamless interaction with smart home devices.<br>
+Welcome to **Flutter Editable Grid**, a dynamic Flutter application serving as the frontend for a **Home Automation Project (Home Control System - HCS )**. This app demonstrates a sleek, user-friendly **editable grid** that allows seamless interaction with smart home devices. <br><br>
 It is mainly a library for a grid of grids interactive responsive and draggable for reordering UI.
 
 ---
 ## Screenshots
+
 <br>
 <img src="https://raw.githubusercontent.com/DawoudTormos/Flutter_Edittable_Grid/refs/heads/master/Screenshots/Screenshot1.png" alt="Screenshot1"  height="500">
 <span > &emsp;&emsp;&emsp; </span>
 <img src="https://raw.githubusercontent.com/DawoudTormos/Flutter_Edittable_Grid/refs/heads/master/Screenshots/Screenshot2.jpg" alt="Screenshot2"  height="500">
 <span > &emsp;&emsp;&emsp; </span>
 <img src="https://raw.githubusercontent.com/DawoudTormos/Flutter_Edittable_Grid/refs/heads/master/Screenshots/Screenshot3.jpg" alt="Screenshot3"  height="500">
+
 <br><br>
+
 ## ✨ Features
 
 ### 🖱️ Editable Grid  
@@ -30,6 +33,7 @@ It is mainly a library for a grid of grids interactive responsive and draggable 
 
 ---
 <br><br><br>
+
 ## 🛠️ Installation
 
 1. Clone the repository:
