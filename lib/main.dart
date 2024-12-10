@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/Gridview_/editable_grid.dart';
-import "widgets/Grid_of_Gridviews/mainGrid.dart";
+import "widgets/Grid_of_Gridviews/main_grid.dart";
 
 void main() {
   runApp(MyApp());
@@ -11,7 +10,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
 
- Map<String, List<Map<String, dynamic>>> gridItems = {
+ final Map<String, List<Map<String, dynamic>>> gridItems = {
   "Kitchen": [
     {"name": "Lamp 1", "color": Colors.red, "icon": Icons.lightbulb, "value": true},
     {"name": "Spotlight 1", "color": Colors.orange, "icon": Icons.light, "value": 0.86},
@@ -26,7 +25,9 @@ class MyApp extends StatelessWidget {
 };
 
 
-   List<String> gridItemsIndexes = ["Kitchen" , "Living Room"];// used to keep the index of keys and to be retrived from the db
+   final List<String> gridItemsIndexes = ["Kitchen" , "Living Room"];
+
+   MyApp({super.key});// used to keep the index of keys and to be retrived from the db
   
 
 
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         body: 
           SingleChildScrollView(
             //physics: BouncingScrollPhysics(),
-            child: Container(
+            child: SizedBox(
               width: screenWidth,
               child: 
                   MainGrid(gridItems: gridItems , gridItemsIndexes : gridItemsIndexes),
