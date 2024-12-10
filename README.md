@@ -1,13 +1,18 @@
 
 # Flutter Editable Grid 🚀
 
-Welcome to **Flutter Editable Grid**, a dynamic Flutter application serving as the frontend for a **Home Automation Project (Home Control System - HCS )**. This app demonstrates a sleek, user-friendly **editable grid** that allows seamless interaction with smart home devices.
+Welcome to **Flutter Editable Grid**, a dynamic Flutter application serving as the frontend for a **Home Automation Project (Home Control System - HCS )**. This app demonstrates a sleek, user-friendly **editable grid** that allows seamless interaction with smart home devices.<br>
 It is mainly a library for a grid of grids interactive responsive and draggable for reordering UI.
 
 ---
-## Screenshot
-
-
+## Screenshots
+<br>
+<img src="https://raw.githubusercontent.com/DawoudTormos/Flutter_Edittable_Grid/refs/heads/master/Screenshots/Screenshot1.png" alt="Screenshot1"  height="500">
+<span > &emsp;&emsp;&emsp; </span>
+<img src="https://raw.githubusercontent.com/DawoudTormos/Flutter_Edittable_Grid/refs/heads/master/Screenshots/Screenshot2.jpg" alt="Screenshot2"  height="500">
+<span > &emsp;&emsp;&emsp; </span>
+<img src="https://raw.githubusercontent.com/DawoudTormos/Flutter_Edittable_Grid/refs/heads/master/Screenshots/Screenshot3.jpg" alt="Screenshot3"  height="500">
+<br><br>
 ## ✨ Features
 
 ### 🖱️ Editable Grid  
@@ -24,7 +29,7 @@ It is mainly a library for a grid of grids interactive responsive and draggable 
 - Designed for seamless integration into larger projects.
 
 ---
-
+<br><br><br>
 ## 🛠️ Installation
 
 1. Clone the repository:
@@ -44,6 +49,7 @@ It is mainly a library for a grid of grids interactive responsive and draggable 
 	flutter run
 
 
+<br><br><br>
 
 ## 📋 Integration and Usage
 
@@ -57,6 +63,7 @@ Then use MainGrid widget wrapped with a SingleChildScrollView  where u need it.
 Note: 
 - You may need to edit the imports in the files.
 - You need to pass the data in the below data structure to the widget.
+<br><br><br>
 
 ### 🗂️ Data Structure for `MainGrid`
 
@@ -96,6 +103,8 @@ Pass this `gridItems` map to `MainGrid` as follows:
 ```
 MainGrid(gridItems: gridItems)
 ```
+<br><br><br>
+
 ### 💾 Saving changing of order.
 The order of the grids and the elements of the grids **is** the indexes  of `List<String> dataKeysIndexs` 
 and `List<Map<String, dynamic>>` in `Map<String, List<Map<String, dynamic>>>` respectively.
@@ -121,6 +130,7 @@ dataKeysIndexs.insert(index, temp);
 
 You can see here the setState() that re-renders the widget after editing the gridItemsIndexes to change the order of the gridview in memory (RAM) So here u can handle sending the change to the Backend.
 
+<br><br><br>
 
 ### Compatible tested flutter version
 
