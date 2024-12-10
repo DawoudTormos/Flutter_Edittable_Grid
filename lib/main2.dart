@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Editable Grid Example",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               EditableGrid(),
             ],
           ),
@@ -28,6 +28,9 @@ class MyApp extends StatelessWidget {
 }
 
 class EditableGrid extends StatefulWidget {
+  
+  const EditableGrid({super.key});
+
   @override
   _EditableGridState createState() => _EditableGridState();
 }
@@ -68,7 +71,7 @@ class _EditableGridState extends State<EditableGrid> {
           child: GridView.builder(
             key: _gridKey,
             shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: 2.5,
             ),
@@ -139,7 +142,7 @@ class _EditableGridState extends State<EditableGrid> {
               children: [
                 Icon(item["icon"],
                     color:  item["value"]== true ? item["color"]:Colors.grey[700], size: (screenWidth < 600 ? 36 : 38)*factor),
-                SizedBox(width: 12),
+                const SizedBox(width: 12),
                 Text(
                   item["name"],
                   style: TextStyle(
@@ -192,7 +195,7 @@ class _EditableGridState extends State<EditableGrid> {
                 Row(children: [
                   Icon(item["icon"],
                       color: item["value"]> 0 ? item["color"]:Colors.grey[700], size: (screenWidth < 600 ? 36 : 38)*factor),
-                  SizedBox(width: 12),
+                  const SizedBox(width: 12),
                   Text(
                     item["name"],
                     style: TextStyle(
@@ -240,3 +243,5 @@ class _EditableGridState extends State<EditableGrid> {
     );
   }
 }
+
+*/

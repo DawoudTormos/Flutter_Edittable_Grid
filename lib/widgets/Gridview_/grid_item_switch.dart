@@ -44,7 +44,7 @@ _GridItemSwitchState();
                   color: widget.item["value"] == true ? widget.item["color"] : Colors.grey[700]!,
                   size: (screenWidth < 600 ? 36 : 38) * factor,
                 ),
-                SizedBox(width: 12),
+                const SizedBox(width: 12),
                 Text(
                   widget.item["name"],
                   style: TextStyle(

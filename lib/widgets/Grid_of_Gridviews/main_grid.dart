@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import "package:Edittable_Grid_Flutter/widgets/Gridview_/editable_grid.dart";
+import "package:edittable_grid_flutter/widgets/gridview_/editable_grid.dart";
 
 class MainGrid extends StatefulWidget {
 
-    Map<String , List<Map<String, dynamic>>>? gridItems ;
-   List<String>? gridItemsIndexes ;
+   final Map<String , List<Map<String, dynamic>>>? gridItems ;
+   final List<String>? gridItemsIndexes ;
 
-   MainGrid({super.key ,
-                  required Map<String , List<Map<String, dynamic>>>? gridItems ,
-                  required List<String>? gridItemsIndexes 
-                  }){
-                    this.gridItems = gridItems;
-                    this.gridItemsIndexes =gridItemsIndexes ;
-                  }
+   const MainGrid({super.key ,
+                  required this.gridItems ,
+                  required this.gridItemsIndexes 
+                  });
     
 
 
@@ -44,7 +41,7 @@ class _MainGridState extends State<MainGrid> {
             //padding: EdgeInsets.symmetric(horizontal:(screenWidth+4 - columnsCount * 500)/2),
             Container(
               width: columnsCount * innerGridWidth, 
-              padding: EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -69,7 +66,7 @@ class _MainGridState extends State<MainGrid> {
             
           
            SizedBox(height: screenWidth < 430 ? 60 : 110),
-          Container(
+           SizedBox(
             width: columnsCount * innerGridWidth,
             child:listOrGrid( screenWidth,  innerGridWidth, columnsCount),
           ),
@@ -148,7 +145,7 @@ if(screenWidth > 430){
     child: ListView.builder(
                 key: _gridKey,
                 shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
 
                 itemCount: widget.gridItems!.length,
                 itemBuilder: (context, index) {

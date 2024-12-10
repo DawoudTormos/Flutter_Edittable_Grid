@@ -4,16 +4,17 @@ import 'grid_item_slider.dart';
 
 class EditableGrid extends StatefulWidget {
 
-   String title = '';
+   final String title ;
    final List<Map<String, dynamic>> data; 
 
-   EditableGrid({super.key , required this.title , required this.data});
+   const EditableGrid({super.key , required this.title , required this.data});
   @override
+  // ignore: library_private_types_in_public_api
   _EditableGridState createState() => _EditableGridState();
 }
 
 class _EditableGridState extends State<EditableGrid> {
-  final Key _gridKey =  UniqueKey();
+  //final Key _gridKey =  UniqueKey();
   bool editMode = false;
 
   
@@ -26,14 +27,14 @@ class _EditableGridState extends State<EditableGrid> {
  
     return Container(
       width:gridWidth ,
-      padding: EdgeInsets.only(bottom:70),
+      padding: const EdgeInsets.only(bottom:70),
       child: Column(
         mainAxisSize: MainAxisSize.min, 
         children: [
       
           Container(
             width: 500,
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -58,12 +59,12 @@ class _EditableGridState extends State<EditableGrid> {
           ),
          
           const SizedBox(height: 20),
-          Container(
+          SizedBox(
             width: gridWidth,
             child: GridView.builder(
               //key: _gridKey,
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: screenWidth < 430 ? 1 : 2,
                 childAspectRatio: screenWidth < 430 ? 4 : 2.5,
