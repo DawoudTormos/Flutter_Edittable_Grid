@@ -71,10 +71,10 @@ Note:
 
 ### 🗂️ Data Structure for `MainGrid`
 
-The `MainGrid` widget requires a `Map<String, List<Map<String, dynamic>>>`  and a `final  List<String>` data structure to populate its grids. Here's an example format:
+The `MainGrid` widget requires a `Map<String, List<Map<String, dynamic>>>`  and a `  List<String>` data structure to populate its grids. Here's an example format:
 
 ```
-final Map<String, List<Map<String, dynamic>>> gridItems = {
+ Map<String, List<Map<String, dynamic>>> gridItems = {
   "Kitchen": [
     {"name": "Lamp 1", "color": Colors.red, "icon": Icons.lightbulb, "value": true},
     {"name": "Spotlight 1", "color": Colors.orange, "icon": Icons.light, "value": 0.86},
@@ -88,7 +88,7 @@ final Map<String, List<Map<String, dynamic>>> gridItems = {
   ],
 };
 
-final  List<String> gridItemsIndexes = ["Kitchen" , "Living Room"];
+  List<String> gridItemsIndexes = ["Kitchen" , "Living Room"];
 // used to keep the index of keys and to be retrived from the db
 
 ```
